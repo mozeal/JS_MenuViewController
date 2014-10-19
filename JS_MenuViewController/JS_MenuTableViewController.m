@@ -80,6 +80,10 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
     UIViewController *viewController = [self viewControllerForRowAtIndexPath:indexPath];
     viewController.title = [self titleForRowAtIndexPath:indexPath];
     
+    if( !viewController.view ) {
+        viewController.view = [[UIView alloc] initWithFrame:[self.view bounds]];
+    }
+    
     NSDictionary *params = [self parametersForRowAtIndexPath:indexPath];
     for( NSString *key in [params allKeys] ) {
         [viewController setValue:[params objectForKey:key] forKey:key];
