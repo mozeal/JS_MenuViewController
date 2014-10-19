@@ -73,8 +73,8 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  #s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git", :tag => "6.0.0" }
-  s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git" }
+  s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git", :tag => "1.0.0" }
+  #s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
