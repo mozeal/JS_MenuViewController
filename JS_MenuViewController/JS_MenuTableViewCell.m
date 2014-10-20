@@ -18,7 +18,7 @@
         self.textLabel.textColor = [UIColor grayColor];
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        self.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:24];
+        self.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:22];
     }
     return self;
 }

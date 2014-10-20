@@ -8,5 +8,5 @@ JS Menu ViewController class is table view controller for simple menu. JS_MenuVi
 JS_MenuViewController is available on [CocoaPods](http://cocoapods.org). Just add the following to your project Podfile:
 
 ```ruby
-pod 'JS_MenuViewController', '~> 1.2'
+pod 'JS_MenuViewController', '~> 1.3'
 ```

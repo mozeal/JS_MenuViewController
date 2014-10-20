@@ -55,7 +55,7 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
 - (void)configureTitleView
 {
     UILabel *headlinelabel = [UILabel new];
-    headlinelabel.font = [UIFont fontWithName:@"Avenir-Light" size:28];
+    headlinelabel.font = [UIFont fontWithName:@"Avenir-Light" size:26];
     headlinelabel.textAlignment = NSTextAlignmentCenter;
     headlinelabel.textColor = [UIColor whiteColor];
     
