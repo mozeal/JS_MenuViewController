@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class JS_MenuTableViewController;
+
+@protocol JS_MenuTableViewControllerDelegate <NSObject>
+@optional
+-(void)JS_MenuTableViewController:(JS_MenuTableViewController *)viewController selected:(NSString *)command;
+@end
+
 @interface JS_MenuTableViewController : UITableViewController
+@property(nonatomic,strong) id<JS_MenuTableViewControllerDelegate> delegate;
 @property(nonatomic) NSArray *items;
 @end

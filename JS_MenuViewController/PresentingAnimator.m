@@ -25,6 +25,7 @@
     UIView *dimmingView = [[UIView alloc] initWithFrame:fromView.bounds];
     dimmingView.backgroundColor = [UIColor grayColor];
     dimmingView.layer.opacity = 0.0;
+    dimmingView.tag = 9997;
 
     UIView *toView = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey].view;
     toView.frame = CGRectMake(0,

@@ -47,6 +47,29 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
     [self.navigationController setToolbarHidden:YES];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    UIView *parentView = [self.view superview];
+    if( parentView ) {
+        UIView *dimmingView  = [parentView viewWithTag:9997];
+        if( dimmingView ) {
+            NSLog( @"DIMMING: Found" );
+            UITapGestureRecognizer *singleFingerTap =
+            [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+            [dimmingView addGestureRecognizer:singleFingerTap];
+        }
+    }
+}
+
+- (void)handleSingleTap:(UITapGestureRecognizer *)recognizer {
+    CGPoint location __unused = [recognizer locationInView:[recognizer.view superview]];
+    
+    
+    if( _delegate && [_delegate respondsToSelector:@selector(JS_MenuTableViewController:selected:)] ) {
+        [_delegate JS_MenuTableViewController:self selected:nil];
+    }
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -87,6 +110,10 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
 {
     UIViewController *viewController = [self viewControllerForRowAtIndexPath:indexPath];
     if( !viewController ) {
+        if( _delegate && [_delegate respondsToSelector:@selector(JS_MenuTableViewController:selected:)] )
+        {
+            [_delegate JS_MenuTableViewController:self selected:[self titleForRowAtIndexPath:indexPath]];
+        }
         return;
     }
     
