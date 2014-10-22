@@ -18,4 +18,6 @@
 @interface JS_MenuTableViewController : UITableViewController
 @property(nonatomic,strong) id<JS_MenuTableViewControllerDelegate> delegate;
 @property(nonatomic) NSArray *items;
+@property(nonatomic,strong) NSBundle *bundle;
+
 @end

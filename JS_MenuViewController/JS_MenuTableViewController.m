@@ -235,13 +235,24 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
 - (NSString *)presentationTypeForRowAtIndexPath:(NSIndexPath *)indexPath {
     if( [self.items[indexPath.row] count] < 2 )
          return nil;
-    return [self.items[indexPath.row] objectAtIndex:1];
+    
+    NSString *presentType = [self.items[indexPath.row] objectAtIndex:1];
+    if( [presentType hasSuffix:@"Nib"] ) {
+        return [presentType substringToIndex:[presentType length]-3];
+    }
+    return presentType;
 }
 
 - (UIViewController *)viewControllerForRowAtIndexPath:(NSIndexPath *)indexPath {
     if( [self.items[indexPath.row] count] < 3 )
         return nil;
-    return [NSClassFromString([self.items[indexPath.row] objectAtIndex:2]) new];
+    
+    NSString *presentType = [self.items[indexPath.row] objectAtIndex:1];
+    NSString *vcName = [self.items[indexPath.row] objectAtIndex:2];
+    if( [presentType hasSuffix:@"Nib"] ) {
+        return [[NSClassFromString(vcName) alloc] initWithNibName:vcName bundle:_bundle];
+    }
+    return [NSClassFromString(vcName) new];
 }
 
 - (NSDictionary *)parametersForRowAtIndexPath:(NSIndexPath *)indexPath {
