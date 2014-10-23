@@ -32,11 +32,8 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
-    if( !self.title ) {
-        self.title = @"UIPlayground";
-    }
+
     [self configureTitleView];
     [self configureTableView];
 }
@@ -131,9 +128,14 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
     
     NSString *type = [self presentationTypeForRowAtIndexPath:indexPath];
     if( [type isEqualToString:@"Push"] ) {
-    [self.navigationController pushViewController:viewController
-                                         animated:YES];
-}
+        viewController.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@" "
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:nil
+                                                                                action:nil];
+        viewController.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+        
+        [self.navigationController pushViewController:viewController animated:YES];
+    }
     else if( [type isEqualToString:@"Present"] ) {
         [self createDismissButton:viewController];
         [self.navigationController presentViewController:viewController animated:YES completion:nil];
