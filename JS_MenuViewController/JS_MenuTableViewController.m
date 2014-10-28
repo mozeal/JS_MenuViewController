@@ -74,6 +74,8 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
 
 - (void)configureTitleView
 {
+    if( self.title == nil )
+        return;
     UILabel *headlinelabel = [UILabel new];
     headlinelabel.font = [UIFont fontWithName:@"Avenir-Light" size:26];
     headlinelabel.textAlignment = NSTextAlignmentCenter;
@@ -164,7 +166,8 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
     UIButton *dismissButton = [UIButton buttonWithType:UIButtonTypeSystem];
     dismissButton.translatesAutoresizingMaskIntoConstraints = NO;
     dismissButton.tintColor = [UIColor yellowColor];
-    dismissButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:20];
+    dismissButton.titleLabel.font = [UIFont fontWithName:@"Avenir" size:12];
+    dismissButton.backgroundColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.4];
     [dismissButton setTitle:@"Dismiss" forState:UIControlStateNormal];
     [dismissButton addTarget:self action:@selector(dismiss:) forControlEvents:UIControlEventTouchUpInside];
     [viewController.view addSubview:dismissButton];
@@ -178,7 +181,10 @@ static NSString * const kCellIdentifier = @"jsmenucellIdentifier";
                                                                    multiplier:1.f
                                                                      constant:0.f]];
     
-    
+    [viewController.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[dismissButton]|"
+                                             options:0
+                                             metrics:nil
+                                               views:NSDictionaryOfVariableBindings(dismissButton)]];
     [viewController.view addConstraints:[NSLayoutConstraint
                                          constraintsWithVisualFormat:@"V:[dismissButton]-|"
                                          options:0
