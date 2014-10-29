@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "JS_MenuViewController"
-  s.version      = "1.8.0"
+  s.version      = "1.8.2"
   s.summary      = "A subclass of UITableView for simple menu"
 
   s.description  = <<-DESC
@@ -73,7 +73,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git", :tag => "1.8.0" }
+  s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git", :tag => "1.8.2" }
   #s.source       = { :git => "https://github.com/mozeal/JS_MenuViewController.git" }
 
 
